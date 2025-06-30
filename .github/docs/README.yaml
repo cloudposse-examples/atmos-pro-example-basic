@@ -14,35 +14,48 @@ introduction: |-
 
 usage: |-
 
-  This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow is simple:
+  This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
 
-  ### 1. Create a Pull Request
-  When you create a pull request, it automatically triggers the **plan** workflow. This will:
-  - Run `atmos plan` for all affected components
-  - Show you what changes will be made to your infrastructure
-  - Provide feedback in the PR comments
+  ## On Pull Requests: Atmos Pro Triggers `atmos terraform plan`
 
-  ### 2. Merge the Pull Request
-  When you merge the pull request, it automatically triggers the **apply** workflow. This will:
-  - Run `atmos apply` for all affected components
-  - Apply the planned changes to your infrastructure
-  - Update the deployment status
+  When you create or update a pull request, Atmos Pro automatically handles the planning process:
+
+  1. **Developer Makes a Change** - You modify your infrastructure code
+  2. **Code Is Pushed to Feature Branch** - Changes are committed and pushed
+  3. **GitHub Actions Trigger Atmos Affected Stacks** - Atmos identifies which stacks are affected by your changes
+  4. **Atmos Uploads Affected Stacks** - The affected stack configurations are uploaded to Atmos Pro
+  5. **Atmos Pro Dispatches Plan Workflows** - Atmos Pro automatically runs `atmos terraform plan` for affected components
+  6. **Atmos Pro Updates Status Comment** - Results are posted as a comment on your pull request
+
+  This gives you visibility into what changes will be made to your infrastructure before merging.
+
+  ## On Merged Pull Requests: Atmos Pro Triggers `atmos terraform apply`
+
+  When you merge a pull request, Atmos Pro automatically handles the deployment:
+
+  1. **Pull Request Is Merged** - Your changes are merged into the main branch
+  2. **GitHub Actions Trigger Atmos Affected Stacks** - Atmos identifies which stacks need to be updated
+  3. **Atmos Uploads Affected Stacks** - The affected stack configurations are uploaded to Atmos Pro
+  4. **Atmos Pro Dispatches Apply Workflows** - Atmos Pro automatically runs `atmos terraform apply` for affected components
+  5. **Atmos Pro Updates Status Comment** - Deployment results are posted as a comment on the merged PR
+
+  This ensures your infrastructure changes are automatically deployed when code is merged.
 
   ## Configuration
 
   The minimal configuration includes:
   - `atmos.yaml` - Main Atmos configuration file
   - `.github/workflows/` - GitHub Actions workflows for plan and apply
-  - `components/` - Your infrastructure components
-  - `stacks/` - Stack configurations
+  - `components/` - Your infrastructure components (Terraform root modules)
+  - `stacks/` - Atmos stack configurations
 
-  ## Getting Started
+  ## Required GitHub Variables
 
-  1. Fork this repository
-  2. Configure your AWS credentials in GitHub Secrets
-  3. Update the stack configurations in `stacks/` to match your environment
-  4. Create a pull request to test the plan workflow
-  5. Merge the PR to trigger the apply workflow
+  You'll need to configure the following GitHub variables in your repository settings:
+
+  - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
+  - `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
+  - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
 
   For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
 
