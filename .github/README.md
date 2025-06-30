@@ -16,7 +16,8 @@ For comprehensive documentation and advanced features, visit [atmos-pro.com/docs
 
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
 
-### On Pull Requests
+<details>
+<summary><strong>On Pull Requests</strong></summary>
 
 When a pull request is created or updated, Atmos Pro triggers `atmos terraform plan`:
 
@@ -28,8 +29,10 @@ When a pull request is created or updated, Atmos Pro triggers `atmos terraform p
 6. **Atmos Pro updates status comment** - Results are posted as a comment on your pull request
 
 This gives you visibility into what changes will be made to your infrastructure before merging.
+</details>
 
-### On Merged Pull Requests
+<details>
+<summary><strong>On Merged Pull Requests</strong></summary>
 
 When a pull request is merged, Atmos Pro triggers `atmos terraform apply`:
 
@@ -40,22 +43,27 @@ When a pull request is merged, Atmos Pro triggers `atmos terraform apply`:
 5. **Atmos Pro updates status comment** - Deployment results are posted as a comment on the merged PR
 
 This ensures your infrastructure changes are automatically deployed when code is merged.
+</details>
 
-### Configuration
+<details>
+<summary><strong>Configuration</strong></summary>
 
 The minimal configuration includes:
 - `atmos.yaml` - Main Atmos configuration file
 - `.github/workflows/` - GitHub Actions workflows for plan and apply
 - `components/` - Your infrastructure components (Terraform root modules)
 - `stacks/` - Atmos stack configurations
+</details>
 
-### Required GitHub Variables
+<details>
+<summary><strong>Required GitHub Variables</strong></summary>
 
 You'll need to configure the following GitHub variables in your repository settings:
 
 - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
 - `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
 - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
+</details>
 
 For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
 
