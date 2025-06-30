@@ -16,9 +16,9 @@ For comprehensive documentation and advanced features, visit [atmos-pro.com/docs
 
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
 
-## On Pull Requests: Atmos Pro Triggers `atmos terraform plan`
+## On Pull Requests
 
-When you create or update a pull request, Atmos Pro automatically handles the planning process:
+When a pull request is created or updated, Atmos Pro Triggers `atmos terraform plan`:
 
 1. **Developer Makes a Change** - You modify your infrastructure code
 2. **Code Is Pushed to Feature Branch** - Changes are committed and pushed
@@ -29,9 +29,9 @@ When you create or update a pull request, Atmos Pro automatically handles the pl
 
 This gives you visibility into what changes will be made to your infrastructure before merging.
 
-## On Merged Pull Requests: Atmos Pro Triggers `atmos terraform apply`
+## On Merged Pull Requests
 
-When you merge a pull request, Atmos Pro automatically handles the deployment:
+When a pull request is merged, Atmos Pro Triggers `atmos terraform apply`:
 
 1. **Pull Request Is Merged** - Your changes are merged into the main branch
 2. **GitHub Actions Trigger Atmos Affected Stacks** - Atmos identifies which stacks need to be updated
