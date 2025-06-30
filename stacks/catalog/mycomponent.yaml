@@ -4,9 +4,10 @@ components:
   terraform:
     # This is an example of a Terraform component with some common values.
     # Here we can define default values that we can inherit in stacks and override as necessary.
-    mycomponent:
+    mycomponent/defaults:
       metadata:
         component: mock
+        type: abstract
       vars:
         foo: "foo catalog default"
         bar: "bar catalog default"

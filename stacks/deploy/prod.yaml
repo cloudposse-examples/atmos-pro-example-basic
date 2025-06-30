@@ -14,12 +14,29 @@ components:
   terraform:
     # This is a deployment of the "mycomponent" component
     # We have inherited the default values from the catalog and overridden some of them
-    mycomponent:
-      # With metadata.component, we specify which Terraform directory for Atmos to use with this deployment.
-      # The directory path is defined in atmos.yaml.
-      # If this is not specified, Atmos will use the component name.
+    mycomponent/1:
+      metadata:
+        # With metadata.component, we specify which Terraform directory for Atmos to use with this deployment.
+        # The directory path is defined in atmos.yaml.
+        # If this is not specified, Atmos will use the component name.
+        component: mock
+        # With metadata.inherits, we can inherit common values from the defaults defined in the catalog.
+        inherits:
+          - mycomponent/defaults
+      vars:
+        foo: "mycomponent 1 foo prod override"
+        bar: "mycomponent 1 bar prod override"
+
+    mycomponent/2:
+      # This component depends on the first component in this stack.
+      settings:
+        depends_on:
+          1: 
+            component: mycomponent/1
       metadata:
         component: mock
+        inherits:
+          - mycomponent/defaults
       vars:
-        foo: "foo prod override"
-        bar: "bar prod override"
+        foo: "mycomponent 2 foo prod override"
+        bar: "mycomponent 2 bar prod override"
