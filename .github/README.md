@@ -14,12 +14,37 @@ For comprehensive documentation and advanced features, visit [atmos-pro.com/docs
 
 ## Usage
 
+Follow these steps to get started with this Atmos Pro example:
+
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/cloudposse-examples/atmos-pro-example-basic.git
+   cd atmos-pro-example-basic
+   ```
+
+2. **Install Atmos Pro**
+   Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to install Atmos Pro in this repository.
+
+3. **Set up GitHub Variables**
+   Go to your repository settings → Secrets and variables → Actions, and add:
+   - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
+   - `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
+   - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
+
+4. **Create a pull request**
+  - Modify an example component in `stacks/deploy/nonprod.yaml`
+  - Create a pull request on GitHub to trigger the Atmos Pro workflows.
+
+Then let Atmos Pro do the rest!
+
+## How it works
+
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
 
 <details>
 <summary><strong>On Pull Requests</strong></summary>
 
-When a pull request is created or updated, Atmos Pro triggers `atmos terraform plan`:
+When a pull request is created or updated, Atmos Pro triggers [`atmos terraform plan`](.github/workflows/atmos-terraform-plan.yaml):
 
 1. **Developer makes a change** - You modify your infrastructure code
 2. **Code is pushed to feature branch** - Changes are committed and pushed
@@ -34,7 +59,7 @@ This gives you visibility into what changes will be made to your infrastructure 
 <details>
 <summary><strong>On Merged Pull Requests</strong></summary>
 
-When a pull request is merged, Atmos Pro triggers `atmos terraform apply`:
+When a pull request is merged, Atmos Pro triggers [`atmos terraform apply`](.github/workflows/atmos-terraform-apply.yaml):
 
 1. **Pull request is merged** - Your changes are merged into the main branch
 2. **GitHub Actions trigger Atmos affected stacks** - Atmos identifies which stacks need to be updated
@@ -45,27 +70,45 @@ When a pull request is merged, Atmos Pro triggers `atmos terraform apply`:
 This ensures your infrastructure changes are automatically deployed when code is merged.
 </details>
 
-<details>
-<summary><strong>Configuration</strong></summary>
-
-The minimal configuration includes:
-- `atmos.yaml` - Main Atmos configuration file
-- `.github/workflows/` - GitHub Actions workflows for plan and apply
-- `components/` - Your infrastructure components (Terraform root modules)
-- `stacks/` - Atmos stack configurations
-</details>
-
-<details>
-<summary><strong>Required GitHub Variables</strong></summary>
-
-You'll need to configure the following GitHub variables in your repository settings:
-
-- `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
-- `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
-- `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
-</details>
-
 For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
+
+### Building Documentation
+
+To build the documentation for this repository, run:
+
+```bash
+atmos docs generate readme
+```
+
+This command generates the README.md file from the README.yaml configuration.
+
+### Repository Structure
+
+```
+.
+├── .github/
+│   ├── README.md              # Generated README for GitHub
+│   ├── README.md.gotmpl       # Template for README generation
+│   └── workflows/             # GitHub Actions workflows
+│       ├── atmos-pro.yaml     # Main Atmos Pro workflow
+│       ├── atmos-terraform-apply.yaml
+│       ├── atmos-terraform-plan.yaml
+│       └── atmos-validate.yaml
+├── README.yaml                # Main documentation source
+├── atmos.yaml                 # Atmos configuration
+├── components/                # Infrastructure components
+│   └── terraform/
+│       └── mock/              # Example Terraform component
+│           ├── README.md
+│           └── main.tf
+└── stacks/                    # Atmos stack configurations
+    ├── catalog/               # Component catalog
+    │   └── mycomponent.yaml
+    └── deploy/                # Deployment stacks
+        ├── _defaults.yaml     # Default stack settings
+        ├── nonprod.yaml       # Non-production environment
+        └── prod.yaml          # Production environment
+```
 
 
 
