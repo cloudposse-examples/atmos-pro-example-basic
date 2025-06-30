@@ -16,7 +16,7 @@ For comprehensive documentation and advanced features, visit [atmos-pro.com/docs
 
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
 
-## On Pull Requests
+### On Pull Requests
 
 When a pull request is created or updated, Atmos Pro triggers `atmos terraform plan`:
 
@@ -29,7 +29,7 @@ When a pull request is created or updated, Atmos Pro triggers `atmos terraform p
 
 This gives you visibility into what changes will be made to your infrastructure before merging.
 
-## On Merged Pull Requests
+### On Merged Pull Requests
 
 When a pull request is merged, Atmos Pro triggers `atmos terraform apply`:
 
@@ -41,7 +41,7 @@ When a pull request is merged, Atmos Pro triggers `atmos terraform apply`:
 
 This ensures your infrastructure changes are automatically deployed when code is merged.
 
-## Configuration
+### Configuration
 
 The minimal configuration includes:
 - `atmos.yaml` - Main Atmos configuration file
@@ -49,7 +49,7 @@ The minimal configuration includes:
 - `components/` - Your infrastructure components (Terraform root modules)
 - `stacks/` - Atmos stack configurations
 
-## Required GitHub Variables
+### Required GitHub Variables
 
 You'll need to configure the following GitHub variables in your repository settings:
 
