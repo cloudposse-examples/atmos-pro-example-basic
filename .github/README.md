@@ -31,8 +31,8 @@ Follow these steps to get started with this Atmos Pro example:
    - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
 
 4. **Create a pull request**
-  - Modify an example component in `stacks/deploy/nonprod.yaml`
-  - Create a pull request on GitHub to trigger the Atmos Pro workflows.
+   - Modify an example component in `stacks/deploy/nonprod.yaml`
+   - Create a pull request on GitHub to trigger the Atmos Pro workflows.
 
 Then let Atmos Pro do the rest!
 
