@@ -23,10 +23,9 @@ Follow these steps to get started with this Atmos Pro example:
    ```
 
 2. **Install Atmos Pro**
-   Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to install Atmos Pro in this repository.
+   - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to install Atmos Pro in this repository.
 
 3. **Set up GitHub Variables**
-   Go to your repository settings → Secrets and variables → Actions, and add:
    - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
    - `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
    - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
