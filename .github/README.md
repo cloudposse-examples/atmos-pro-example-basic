@@ -14,6 +14,12 @@ For comprehensive documentation and advanced features, visit [atmos-pro.com/docs
 
 ## Usage
 
+### Installation
+
+Before using this example, you'll need to install Atmos. For installation instructions, visit the [Atmos installation guide](https://atmos.tools/install).
+
+### Quick Start
+
 Follow these steps to get started with this Atmos Pro example:
 
 1. **Clone this repository**
@@ -36,7 +42,7 @@ Follow these steps to get started with this Atmos Pro example:
 
 Then let Atmos Pro do the rest!
 
-## How it works
+### How it works
 
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
 
@@ -71,7 +77,7 @@ This ensures your infrastructure changes are automatically deployed when code is
 
 For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
 
-### Backend Configuration
+#### Backend Configuration
 
 > **Coming Soon**: Backend configuration will be configured solely with Atmos Pro in the future.
 
@@ -104,12 +110,13 @@ This command generates the README.md file from the README.yaml configuration.
 ├── atmos.yaml                 # Atmos configuration
 ├── components/                # Infrastructure components
 │   └── terraform/
-│       └── mock/              # Example Terraform component
+│       ├── my-example-component-1/  # Example Terraform component 1
+│       │   ├── README.md
+│       │   └── main.tf
+│       └── my-example-component-2/  # Example Terraform component 2
 │           ├── README.md
 │           └── main.tf
 └── stacks/                    # Atmos stack configurations
-    ├── catalog/               # Component catalog
-    │   └── mycomponent.yaml
     └── deploy/                # Deployment stacks
         ├── _defaults.yaml     # Default stack settings
         ├── nonprod.yaml       # Non-production environment
