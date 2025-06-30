@@ -1,0 +1,66 @@
+name: infra-demo-atmos-pro
+
+license: APACHE2
+
+github_repo: cloudposse-examples/infra-demo-atmos-pro
+
+badges:
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/atmos.svg?style=for-the-badge
+    url: https://github.com/cloudposse/atmos/releases/latest
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
+
+categories:
+  - cli
+  - automation
+  - cloud
+  - devops
+  - workflow
+  - terraform
+  - helm
+  - helmfile
+  - kubernetes
+  - aws
+
+description: |-
+  This demonstration showcases mock components representing a typical service-oriented architecture and their dependencies. It is designed to work seamlessly with Atmos Pro, coordinating a rollout in dependency order by dispatching GitHub Action workflows.
+
+introduction: |-
+
+  Find all documentation at: [atmos.tools](https://atmos.tools)
+
+  > [!TIP]
+  > ### Did you know?
+  >
+  > By leveraging Atmos in conjunction with Cloud Posse's [*expertise in AWS*](https://cloudposse.com),
+  > [*terraform blueprints*](https://cloudposse.com/services/), and our [*knowledgeable community*](https://slack.cloudposse.com), teams can achieve
+  > operational mastery and innovation faster, transforming their infrastructure management practices into a competitive advantage.
+
+usage: |-
+
+  This repository demonstrates how to use Atmos Pro with GitHub Actions to plan and apply Terraform. We have created mock components here that
+  do not actually create any resources in your AWS account. This is a demonstration repository to show how to use Atmos Pro with GitHub Actions. The
+  component dependency mapping is as follows:
+
+  ```mermaid
+  ---
+  title: Ordered Dependencies of Components
+  ---
+
+  graph LR;
+      cache --> vpc
+      database --> vpc
+      load-balancer --> vpc
+      cluster --> vpc
+      cluster --> load-balancer
+      cdn --> object-storage
+      cdn --> frontend
+      api --> database
+      api --> cluster
+      frontend --> cache
+      frontend --> api
+  ```
+
+contributors: []

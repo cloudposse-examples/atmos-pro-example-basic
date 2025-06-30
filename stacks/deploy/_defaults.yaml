@@ -1,0 +1,32 @@
+# plan-wf-config and apply-wf-config use YAML anchors to avoid duplication.
+plan-wf-config: &plan-wf-config
+  # These workflows must exist in the default branch in the .github/workflows directory.
+  atmos-terraform-plan.yaml:
+    # We can define inputs that Atmos Pro will pass to the dispatched workflow.
+    inputs:
+      component: "{{ .atmos_component }}"
+      stack: "{{ .atmos_stack }}"
+
+apply-wf-config: &apply-wf-config
+  atmos-terraform-apply.yaml:
+    inputs:
+      component: "{{ .atmos_component }}"
+      stack: "{{ .atmos_stack }}"
+      github_environment: "{{ .vars.tenant }}-{{ .vars.stage }}"
+
+# Define common settings for Atmos Pro. We will inherit these settings for all deployments
+settings:
+  pro:
+    enabled: true
+    pull_request:
+      # When a GitHub Pull Request is opened, synchronized, or reopened, we will run the plan workflow. 
+      opened:
+        workflows: *plan-wf-config
+      synchronize:
+        workflows: *plan-wf-config
+      reopened:
+        workflows: *plan-wf-config
+      # When a Pull Request is merged, we will run the apply workflow. 
+      # Merged is custom event handled by Atmos Pro when a PR is closed and merged.
+      merged:
+        workflows: *apply-wf-config

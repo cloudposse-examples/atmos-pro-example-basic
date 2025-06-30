@@ -1,0 +1,52 @@
+name: 🐛 Validate
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+# Concurrency ensures only the latest push for this PR will run at a time
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  atmos-validate:
+    name: "atmos validate"
+    runs-on: ["ubuntu-latest"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+
+      - name: Install Atmos
+        uses: cloudposse/github-action-setup-atmos@v2
+        with:
+          atmos-version: ${{ vars.ATMOS_VERSION }}
+
+      - name: Atmos Validate
+        id: atmos-validate
+        shell: bash
+        run: |
+          set +e # dont exit on failure yet
+          atmos_validate_stacks="$(atmos validate stacks 2>&1)"
+          atmos_validate_stacks_status="$?"
+          set -e
+
+          echo "### Atmos Validate Stacks"  >> $GITHUB_STEP_SUMMARY
+          if [[ $atmos_validate_stacks_status -eq 0 ]]; then
+            echo "✅ Valid Atmos stack configuration!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Atmos stack validation failed." >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`console"  >> $GITHUB_STEP_SUMMARY
+            echo "$atmos_validate_stacks"  >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`"  >> $GITHUB_STEP_SUMMARY
+          fi
+
+          exit "$atmos_validate_stacks_status" # exit with resulting code

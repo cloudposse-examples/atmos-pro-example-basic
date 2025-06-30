@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://atmos.tools/schemas/atmos/atmos-manifest/1.0/atmos-manifest.json
+
+# Define common values for all components in this stack.
+vars:
+  stage: prod
+
+# Import other Atmos stack configurations and deep merge them into this stack.
+import:
+  - ./_defaults
+  - catalog/mycomponent
+
+# Define components to deploy in this Atmos stack.
+components:
+  terraform:
+    # This is a deployment of the "mycomponent" component
+    # We have inherited the default values from the catalog and overridden some of them
+    mycomponent:
+      # With metadata.component, we specify which Terraform directory for Atmos to use with this deployment.
+      # The directory path is defined in atmos.yaml.
+      # If this is not specified, Atmos will use the component name.
+      metadata:
+        component: mock
+      vars:
+        foo: "foo prod override"
+        bar: "bar prod override"
