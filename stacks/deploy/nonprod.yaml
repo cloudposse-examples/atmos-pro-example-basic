@@ -7,36 +7,22 @@ vars:
 # Import other Atmos stack configurations and deep merge them into this stack.
 import:
   - ./_defaults
-  - catalog/mycomponent
 
 # Define components to deploy in this Atmos stack.
 components:
   terraform:
-    # This is a deployment of the "mycomponent" component
-    # We have inherited the default values from the catalog and overridden some of them
-    mycomponent/1:
-      metadata:
-        # With metadata.component, we specify which Terraform directory for Atmos to use with this deployment.
-        # The directory path is defined in atmos.yaml.
-        # If this is not specified, Atmos will use the component name.
-        component: mock
-        # With metadata.inherits, we can inherit common values from the defaults defined in the catalog.
-        inherits:
-          - mycomponent/defaults
+    # This is a deployment of the "my-example-component-1" component
+    my-example-component-1:
       vars:
-        foo: "mycomponent 1 foo nonprod override"
-        bar: "mycomponent 1 bar nonprod override"
+        foo: "nonprod foo"
+        bar: "nonprod bar"
 
-    mycomponent/2:
-      # This component depends on the first component in this stack.
+    # This is an example of a component that depends on another component in this stack.
+    my-example-component-2:
       settings:
         depends_on:
           1: 
-            component: mycomponent/1
-      metadata:
-        component: mock
-        inherits:
-          - mycomponent/defaults
+            component: my-example-component-1
       vars:
-        foo: "mycomponent 2 foo nonprod override"
-        bar: "mycomponent 2 bar nonprod override"
+        foo: "nonprod foo"
+        bar: "nonprod bar"
