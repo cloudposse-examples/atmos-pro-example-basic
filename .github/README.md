@@ -36,12 +36,6 @@ Follow these steps to get started with this Atmos Pro example:
 
 Then let Atmos Pro do the rest!
 
-## Backend Configuration
-
-> **Coming Soon**: Backend configuration will be configured solely with Atmos Pro in the future.
-
-Currently, backend configuration is set in `stacks/deploy/_defaults.yaml`.
-
 ## How it works
 
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow follows these steps:
@@ -76,6 +70,13 @@ This ensures your infrastructure changes are automatically deployed when code is
 </details>
 
 For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
+
+### Backend Configuration
+
+> **Coming Soon**: Backend configuration will be configured solely with Atmos Pro in the future.
+
+Currently, backend configuration is set in `stacks/deploy/_defaults.yaml`.
+
 
 ### Building Documentation
 
