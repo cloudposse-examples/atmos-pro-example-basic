@@ -36,6 +36,8 @@ Follow these steps to get started with this Atmos Pro example:
    - `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
    - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
 
+   For more information about GitHub variables, see the [GitHub documentation](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables).
+
 4. **Create a pull request**
    - Modify an example component in `stacks/deploy/nonprod.yaml`
    - Create a pull request on GitHub to trigger the Atmos Pro workflows.
