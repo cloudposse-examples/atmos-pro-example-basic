@@ -13,7 +13,6 @@ introduction: |-
   For comprehensive documentation and advanced features, visit [atmos-pro.com/docs](https://atmos-pro.com/docs).
 
 usage: |-
-  ## Basic Workflow
 
   This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow is simple:
 
@@ -46,22 +45,5 @@ usage: |-
   5. Merge the PR to trigger the apply workflow
 
   For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
-
-examples: |-
-  ## Example Components
-
-  This repository includes example components that demonstrate different infrastructure patterns:
-
-  - **vpc** - Basic VPC configuration
-  - **database** - RDS database setup
-  - **api** - API service configuration
-  - **frontend** - Frontend application setup
-
-  Each component includes:
-  - Terraform configuration
-  - Component metadata
-  - Dependencies specification
-
-  You can modify these components or add your own to match your infrastructure needs.
 
 contributors: []

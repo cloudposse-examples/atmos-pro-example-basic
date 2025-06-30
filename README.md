@@ -14,8 +14,6 @@ For comprehensive documentation and advanced features, visit [atmos-pro.com/docs
 
 ## Usage
 
-## Basic Workflow
-
 This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow is simple:
 
 ### 1. Create a Pull Request
@@ -50,23 +48,6 @@ For more detailed configuration options and advanced features, refer to the [Atm
 
 
 
-## Examples
-
-## Example Components
-
-This repository includes example components that demonstrate different infrastructure patterns:
-
-- **vpc** - Basic VPC configuration
-- **database** - RDS database setup
-- **api** - API service configuration
-- **frontend** - Frontend application setup
-
-Each component includes:
-- Terraform configuration
-- Component metadata
-- Dependencies specification
-
-You can modify these components or add your own to match your infrastructure needs.
 
 
 
@@ -74,22 +55,6 @@ You can modify these components or add your own to match your infrastructure nee
 
 
 
-
-
-## Contributing
-
-This project is under active development, and we encourage contributions from our community.
-
-For 🐛 bug reports & feature requests, please use the [issue tracker](https://github.com/cloudposse-examples/atmos-pro-example-basic/issues).
-
-In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
- 1. **Fork** the repo on GitHub
- 2. **Clone** the project to your own machine
- 3. **Commit** changes to your own branch
- 4. **Push** your work back up to your fork
- 5. Submit a **Pull Request** so that we can review your changes
-
-**NOTE:** Be sure to merge the latest changes from "upstream" before making a pull request!
 ## License
 
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge" alt="License"></a>
