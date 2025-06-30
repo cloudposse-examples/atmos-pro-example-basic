@@ -38,5 +38,5 @@ components:
         inherits:
           - mycomponent/defaults
       vars:
-        foo: "mycomponent 2 foo nonprod override"
+        foo: "mycomponent 2 foo nonprod override 1"
         bar: "mycomponent 2 bar nonprod override"
