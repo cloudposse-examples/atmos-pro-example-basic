@@ -40,7 +40,7 @@ Follow these steps to get started with this Atmos Pro example:
 
 4. **Create a pull request**
    - Modify an example component in `stacks/deploy/nonprod.yaml`
-     For example, change the value of `foo` from `"nonprod foo"` to `"nonprod foo updated"`
+   - For example, change the value of `foo` from `"nonprod foo a"` to `"nonprod foo b"`
    - Create a pull request on GitHub to trigger the Atmos Pro workflows.
 
 Then let Atmos Pro do the rest!
