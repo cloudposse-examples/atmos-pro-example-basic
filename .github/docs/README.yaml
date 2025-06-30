@@ -1,66 +1,67 @@
-name: infra-demo-atmos-pro
+name: atmos-pro-example-basic
 
 license: APACHE2
 
-github_repo: cloudposse-examples/infra-demo-atmos-pro
-
-badges:
-  - name: Latest Release
-    image: https://img.shields.io/github/release/cloudposse/atmos.svg?style=for-the-badge
-    url: https://github.com/cloudposse/atmos/releases/latest
-  - name: Slack Community
-    image: https://slack.cloudposse.com/for-the-badge.svg
-    url: https://slack.cloudposse.com
-
-categories:
-  - cli
-  - automation
-  - cloud
-  - devops
-  - workflow
-  - terraform
-  - helm
-  - helmfile
-  - kubernetes
-  - aws
+github_repo: cloudposse-examples/atmos-pro-example-basic
 
 description: |-
-  This demonstration showcases mock components representing a typical service-oriented architecture and their dependencies. It is designed to work seamlessly with Atmos Pro, coordinating a rollout in dependency order by dispatching GitHub Action workflows.
+  A basic example demonstrating how to use Atmos Pro with GitHub Actions for infrastructure deployment. This repository shows the minimal configuration needed to get started with Atmos Pro workflows.
 
 introduction: |-
+  This is a basic example repository that demonstrates how to use Atmos Pro with GitHub Actions for infrastructure deployment. It provides a minimal setup to help you understand the core concepts of Atmos Pro workflows.
 
-  Find all documentation at: [atmos.tools](https://atmos.tools)
-
-  > [!TIP]
-  > ### Did you know?
-  >
-  > By leveraging Atmos in conjunction with Cloud Posse's [*expertise in AWS*](https://cloudposse.com),
-  > [*terraform blueprints*](https://cloudposse.com/services/), and our [*knowledgeable community*](https://slack.cloudposse.com), teams can achieve
-  > operational mastery and innovation faster, transforming their infrastructure management practices into a competitive advantage.
+  For comprehensive documentation and advanced features, visit [atmos-pro.com/docs](https://atmos-pro.com/docs).
 
 usage: |-
+  ## Basic Workflow
 
-  This repository demonstrates how to use Atmos Pro with GitHub Actions to plan and apply Terraform. We have created mock components here that
-  do not actually create any resources in your AWS account. This is a demonstration repository to show how to use Atmos Pro with GitHub Actions. The
-  component dependency mapping is as follows:
+  This example demonstrates the minimal configuration needed to use Atmos Pro with GitHub Actions. The workflow is simple:
 
-  ```mermaid
-  ---
-  title: Ordered Dependencies of Components
-  ---
+  ### 1. Create a Pull Request
+  When you create a pull request, it automatically triggers the **plan** workflow. This will:
+  - Run `atmos plan` for all affected components
+  - Show you what changes will be made to your infrastructure
+  - Provide feedback in the PR comments
 
-  graph LR;
-      cache --> vpc
-      database --> vpc
-      load-balancer --> vpc
-      cluster --> vpc
-      cluster --> load-balancer
-      cdn --> object-storage
-      cdn --> frontend
-      api --> database
-      api --> cluster
-      frontend --> cache
-      frontend --> api
-  ```
+  ### 2. Merge the Pull Request
+  When you merge the pull request, it automatically triggers the **apply** workflow. This will:
+  - Run `atmos apply` for all affected components
+  - Apply the planned changes to your infrastructure
+  - Update the deployment status
+
+  ## Configuration
+
+  The minimal configuration includes:
+  - `atmos.yaml` - Main Atmos configuration file
+  - `.github/workflows/` - GitHub Actions workflows for plan and apply
+  - `components/` - Your infrastructure components
+  - `stacks/` - Stack configurations
+
+  ## Getting Started
+
+  1. Fork this repository
+  2. Configure your AWS credentials in GitHub Secrets
+  3. Update the stack configurations in `stacks/` to match your environment
+  4. Create a pull request to test the plan workflow
+  5. Merge the PR to trigger the apply workflow
+
+  For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
+
+examples: |-
+  ## Example Components
+
+  This repository includes example components that demonstrate different infrastructure patterns:
+
+  - **vpc** - Basic VPC configuration
+  - **database** - RDS database setup
+  - **api** - API service configuration
+  - **frontend** - Frontend application setup
+
+  Each component includes:
+  - Terraform configuration
+  - Component metadata
+  - Dependencies specification
+
+  You can modify these components or add your own to match your infrastructure needs.
 
 contributors: []

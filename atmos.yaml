@@ -67,9 +67,9 @@ docs:
   generate:
     readme:
       base-dir: .
-      template: "https://raw.githubusercontent.com/cloudposse-terraform-components/.github/feat/atmos-docs/templates/README.md.gotmpl"
+      template: "README.md.gotmpl"
       output: "README.md"
       terraform:
         enabled: false
       input:
-        - "./github/docs/README.yaml"
+        - ".github/docs/README.yaml"
