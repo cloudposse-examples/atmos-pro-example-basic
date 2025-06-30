@@ -30,3 +30,15 @@ settings:
       # Merged is custom event handled by Atmos Pro when a PR is closed and merged.
       merged:
         workflows: *apply-wf-config
+
+terraform:
+  backend_type: s3
+  backend:
+    s3:
+      bucket: cptest-core-ue2-root-tfstate-ex1
+      dynamodb_table: cptest-core-ue2-root-tfstate-ex1-lock
+      role_arn: arn:aws:iam::822777368227:role/cptest-core-gbl-root-tfstate-ex1
+      encrypt: true
+      key: terraform.tfstate
+      acl: bucket-owner-full-control
+      region: us-east-2
