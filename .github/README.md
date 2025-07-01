@@ -32,6 +32,7 @@ The following prerequisites are **not required** to run this demo example, but a
 
 #### 1. GitHub OIDC Integration
 To use GitHub Actions securely with Terraform, you'll need to set up **GitHub OIDC** with your cloud provider of choice.  
+
 > [!TIP] 
 > This example works without GitHub OIDC, but you'll need it in practice for GitHub Actions to authenticate properly with your cloud provider.
 
