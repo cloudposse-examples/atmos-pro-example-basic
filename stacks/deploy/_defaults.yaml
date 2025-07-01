@@ -30,3 +30,6 @@ settings:
       # Merged is custom event handled by Atmos Pro when a PR is closed and merged.
       merged:
         workflows: *apply-wf-config
+
+terraform:
+  backend_type: local

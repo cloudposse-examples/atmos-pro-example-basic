@@ -15,7 +15,41 @@ introduction: |-
 usage: |-
   ### Installation
 
-  Before using this example, you'll need to install Atmos. For installation instructions, visit the [Atmos installation guide](https://atmos.tools/install).
+  <details>
+  <summary><strong>Prerequisites for Using Atmos CLI</strong></summary>
+
+  In order to trigger workflows from this GitHub repository, the Atmos Pro GitHub App will execute `atmos` on your behalf in GitHub Actions. You do not need to install anything locally.
+
+  However if you wish to execute `atmos` locally, you will need to install Atmos. For installation instructions, visit the [Atmos installation guide](https://atmos.tools/install).
+
+  </details>
+
+  <details>
+  <summary><strong>Prerequisites for Using Atmos Pro (Basic Example)</strong></summary>
+
+  The following prerequisites are **not required** to run this demo example, but are essential for using **Atmos Pro** effectively with real infrastructure:
+
+  #### 1. GitHub OIDC Integration
+  To use GitHub Actions securely with Terraform, you'll need to set up **GitHub OIDC** with your cloud provider of choice.  
+  > ⚠️ This example works without GitHub OIDC, but you'll need it in practice for GitHub Actions to authenticate properly with your cloud provider.
+
+  For more on setting this up with our reference architecture, please see [How to use GitHub OIDC with AWS](https://docs.cloudposse.com/layers/github-actions/github-oidc-with-aws/).
+
+  #### 2. Terraform Plan Storage Backend
+  This example has plan storage **disabled** for simplicity. However, we recommend enabling it once the basics are working.
+  - Atmos Pro supports plan storage on **AWS**, **GCP**, and **Azure**.
+  - Plan storage lets you reuse the `.tfplan` file generated during the `plan` phase in the `apply` phase—this is a Terraform best practice.
+
+  For more on setting this up with our reference architecture, please see [Setup GitOps with GitHub Actions](https://docs.cloudposse.com/layers/gitops/setup/).
+
+  #### 3. Terraform State Backend
+  The example uses a **local state backend**, which is fine for demos without real cloud resources.
+  - In production, you should configure a **remote state backend**.
+  - Cloud Posse provides a reusable component for AWS. For GCP, Azure, etc., use your preferred backend configuration.
+
+  For more on setting this up with our reference architecture, please see [Initializing the Terraform State S3 Backend](https://docs.cloudposse.com/layers/accounts/initialize-tfstate/).
+
+  </details>
 
   ### Quick Start
 
@@ -78,13 +112,6 @@ usage: |-
   </details>
 
   For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
-
-  #### Backend Configuration
-
-  > **Coming Soon**: Backend configuration will be configured solely with Atmos Pro in the future.
-
-  Currently, backend configuration is set in `stacks/deploy/_defaults.yaml`.
-
 
   ### Building Documentation
 
