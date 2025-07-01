@@ -14,7 +14,7 @@ components:
     # This is a deployment of the "my-example-component-1" component
     my-example-component-1:
       vars:
-        foo: "nonprod foo c"
+        foo: "nonprod foo d"
         bar: "nonprod bar a"
 
     # This is an example of a component that depends on another component in this stack.
