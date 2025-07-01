@@ -40,7 +40,8 @@ jobs:
       - uses: unfor19/install-aws-cli-action@v1
 
       - name: Plan Atmos Component
-        uses: cloudposse/github-action-atmos-terraform-plan@v5
+        #uses: cloudposse/github-action-atmos-terraform-plan@v5
+        uses: cloudposse/github-action-atmos-terraform-plan@feat/optional-plan-storage
         with:
           # Atmos Pro args
           component: ${{ inputs.component }}
@@ -49,3 +50,5 @@ jobs:
           # Atmos required configuration
           atmos-version: ${{ vars.ATMOS_VERSION }}
           atmos-config-path: ${{ vars.ATMOS_CONFIG_PATH }}
+          # Disabled plan storage for demo purposes
+          plan-storage: false

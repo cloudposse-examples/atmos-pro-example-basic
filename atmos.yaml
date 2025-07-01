@@ -24,14 +24,6 @@ integrations:
   github:
     gitops:
       opentofu-version: 1.7.7
-      artifact-storage:
-        region: "us-east-2"
-        bucket: "ex1-core-use2-auto-gitops-plan-storage"
-        table: "ex1-core-use2-auto-gitops-plan-storage"
-        role: "arn:aws:iam::461333128641:role/ex1-core-use2-auto-gha-iam-gitops"
-      role:
-        plan: "arn:aws:iam::582055374050:role/cptest-core-gbl-identity-planners"
-        apply: "arn:aws:iam::582055374050:role/cptest-core-gbl-identity-planners"
 
 docs:
   generate:
