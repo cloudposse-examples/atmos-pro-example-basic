@@ -31,9 +31,7 @@ usage: |-
 
   #### 1. GitHub OIDC Integration
   To use GitHub Actions securely with Terraform, you'll need to set up **GitHub OIDC** with your cloud provider of choice.  
-
-  > [!TIP] 
-  > This example works without GitHub OIDC, but you'll need it in practice for GitHub Actions to authenticate properly with your cloud provider.
+  > ⚠️ This example works without GitHub OIDC, but you'll need it in practice for GitHub Actions to authenticate properly with your cloud provider.
 
   For more on setting this up with our reference architecture, please see [How to use GitHub OIDC with AWS](https://docs.cloudposse.com/layers/github-actions/github-oidc-with-aws/).
 
@@ -49,7 +47,7 @@ usage: |-
   - In production, you should configure a **remote state backend**.
   - Cloud Posse provides a reusable component for AWS. For GCP, Azure, etc., use your preferred backend configuration.
 
-  For more on setting this up with our reference architecture, please see [Initializing the Terraform State S3 Backend](https://docs.cloudposse.com/layers/accounts/initialize-tfstate/).
+  For more on setting this up with our reference architecture, please see [](https://docs.cloudposse.com/layers/accounts/initialize-tfstate/).
 
   </details>
 
