@@ -12,7 +12,7 @@ apply-wf-config: &apply-wf-config
     inputs:
       component: "{{ .atmos_component }}"
       stack: "{{ .atmos_stack }}"
-      github_environment: "{{ .vars.tenant }}-{{ .vars.stage }}"
+      github_environment: "{{ .vars.stage }}"
 
 # Define common settings for Atmos Pro. We will inherit these settings for all deployments
 settings:

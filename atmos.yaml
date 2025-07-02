@@ -35,3 +35,7 @@ docs:
         enabled: false
       input:
         - "README.yaml"
+
+templates:
+  settings:
+    enabled: true
