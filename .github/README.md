@@ -28,7 +28,7 @@ However if you wish to execute `atmos` locally, you will need to install Atmos. 
 <details>
 <summary><strong>Prerequisites for Using Atmos Pro (Basic Example)</strong></summary>
 
-The following prerequisites are **not required** to run this demo example, but are essential for using **Atmos Pro** effectively with real infrastructure:
+The following prerequisites are **not required** to run this demo example but are essential for using **Atmos Pro** effectively with real infrastructure:
 
 #### 1. GitHub OIDC Integration
 To use GitHub Actions securely with Terraform, you'll need to set up **GitHub OIDC** with your cloud provider of choice.  
@@ -62,8 +62,8 @@ Follow these steps to get started with this Atmos Pro example:
    cd atmos-pro-example-basic
    ```
 
-2. **Install Atmos Pro**
-   - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to install Atmos Pro in this repository.
+2. **Install the Atmos Pro GitHub App**
+   - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to sign up for Atmos Pro and install the GitHub App in your cloned repository.
 
 3. **Set up GitHub Variables**
    - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
@@ -74,7 +74,7 @@ Follow these steps to get started with this Atmos Pro example:
 
 4. **Create a pull request**
    - Modify an example component in `stacks/deploy/nonprod.yaml`
-   - For example, change the value of `foo` from `"nonprod foo a"` to `"nonprod foo b"`
+    - For example, change the value of `foo` from `"nonprod foo a"` to `"nonprod foo b"`
    - Create a pull request on GitHub to trigger the Atmos Pro workflows.
 
 Then let Atmos Pro do the rest!
