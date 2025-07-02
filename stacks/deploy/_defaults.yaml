@@ -31,5 +31,7 @@ settings:
       merged:
         workflows: *apply-wf-config
 
+# A local backend is not recommended for practical use -- state will not persist between runs.
+# We use it here for demonstration purposes only.
 terraform:
   backend_type: local
