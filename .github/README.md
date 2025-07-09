@@ -63,7 +63,7 @@ Follow these steps to get started with this Atmos Pro example:
    - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to sign up for Atmos Pro and install the GitHub App in your forked repository.
 
 3. **Set up GitHub Variables**
-   - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
+   - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID. [Find your workspace ID](https://atmos-pro.com/docs/configure/workspaces).
    - `ATMOS_VERSION` - The version of Atmos to use (e.g., `1.181.0`)
    - `ATMOS_CONFIG_PATH` - Path to your Atmos configuration file (e.g., `atmos.yaml`)
 
