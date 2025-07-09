@@ -56,11 +56,8 @@ For more on setting this up with our reference architecture, please see [](https
 
 Follow these steps to get started with this Atmos Pro example:
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/cloudposse-examples/atmos-pro-example-basic.git
-   cd atmos-pro-example-basic
-   ```
+1. **Fork this repository**
+   - Click the "Fork" button in the top right corner of this repository on GitHub
 
 2. **Install the Atmos Pro GitHub App**
    - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to sign up for Atmos Pro and install the GitHub App in your cloned repository.
