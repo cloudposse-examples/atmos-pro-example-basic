@@ -25,4 +25,4 @@ components:
             component: my-example-component-1
       vars:
         foo: "nonprod foo c"
-        bar: "nonprod bar b"
+        bar: "nonprod bar d"
