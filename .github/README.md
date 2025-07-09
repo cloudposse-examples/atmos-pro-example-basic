@@ -60,7 +60,7 @@ Follow these steps to get started with this Atmos Pro example:
    - Click the "Fork" button in the top right corner of this repository on GitHub
 
 2. **Install the Atmos Pro GitHub App**
-   - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to sign up for Atmos Pro and install the GitHub App in your cloned repository.
+   - Follow the [Atmos Pro documentation](https://atmos-pro.com/docs) to sign up for Atmos Pro and install the GitHub App in your forked repository.
 
 3. **Set up GitHub Variables**
    - `ATMOS_PRO_WORKSPACE_ID` - Your Atmos Pro workspace ID
