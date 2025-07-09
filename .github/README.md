@@ -72,12 +72,9 @@ Follow these steps to get started with this Atmos Pro example:
 
    For more information about GitHub variables, see the [GitHub documentation](https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables).
 
-4. **Create a pull request**
-   - Modify an example component in `stacks/deploy/nonprod.yaml`
-    - For example, change the value of `foo` from `"nonprod foo a"` to `"nonprod foo b"`
-   - Create a pull request on GitHub to trigger the Atmos Pro workflows.
+ Now to test it out, create a pull request and let Atmos Pro do the rest!
 
-Then let Atmos Pro do the rest!
+ For example, you can modify an example component in `stacks/deploy/nonprod.yaml` and create a pull request on GitHub to trigger the Atmos Pro workflows. Try changing the value of `foo`, sit back, and see what happens!
 
 ### How it works
 
