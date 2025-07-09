@@ -90,6 +90,32 @@ When a pull request is created or updated, Atmos Pro triggers [`atmos terraform 
 6. **Atmos Pro updates status comment** - Results are posted as a comment on your pull request
 
 This gives you visibility into what changes will be made to your infrastructure before merging.
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant GH as GitHub
+    participant AA as GitHub Actions
+    participant Atmos as Atmos CLI
+    participant AP as Atmos Pro
+    participant TF as Terraform
+    participant AWS as AWS
+
+    Dev->>GH: Create/update PR
+    GH->>AA: Trigger workflow
+    AA->>Atmos: atmos affected stacks
+    Atmos->>Atmos: Identify affected stacks
+    Atmos->>AP: Upload affected stacks to Atmos Pro API
+    AP->>AA: Dispatch plan workflows
+    AA->>Atmos: atmos terraform plan
+    Atmos->>TF: terraform plan
+    TF->>AWS: Check current state
+    AWS->>TF: Current state
+    TF->>AA: Plan results
+    AA->>GH: Workflow status
+    AP->>GH: Check workflow status
+    AP->>GH: Update PR comment
+```
 </details>
 
 <details>
@@ -104,6 +130,32 @@ When a pull request is merged, Atmos Pro triggers [`atmos terraform apply`](.git
 5. **Atmos Pro updates status comment** - Deployment results are posted as a comment on the merged PR
 
 This ensures your infrastructure changes are automatically deployed when code is merged.
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant GH as GitHub
+    participant AA as GitHub Actions
+    participant Atmos as Atmos CLI
+    participant AP as Atmos Pro
+    participant TF as Terraform
+    participant AWS as AWS
+
+    Dev->>GH: Merge PR
+    GH->>AA: Trigger workflow
+    AA->>Atmos: atmos affected stacks
+    Atmos->>Atmos: Identify affected stacks
+    Atmos->>AP: Upload affected stacks to Atmos Pro API
+    AP->>AA: Dispatch apply workflows
+    AA->>Atmos: atmos terraform apply
+    Atmos->>TF: terraform apply
+    TF->>AWS: Apply infrastructure changes
+    AWS->>TF: Apply results
+    TF->>AA: Apply results
+    AA->>GH: Workflow status
+    AP->>GH: Check workflow status
+    AP->>GH: Update PR comment
+```
 </details>
 
 For more detailed configuration options and advanced features, refer to the [Atmos Pro documentation](https://atmos-pro.com/docs).
