@@ -72,6 +72,7 @@ jobs:
           atmos-version: ${{ vars.ATMOS_VERSION }}
           atmos-config-path: ${{ vars.ATMOS_CONFIG_PATH }}
           atmos-pro-upload: true
+          atmos-pro-base-url: https://ngrok.mattcalhoun.com
           # Compare the head of the PR to the base of the PR if the PR is not merged.
           # If the PR is merged, compare the head of the PR to 1 previous commit on the base branch.
           head-ref: ${{ github.event.pull_request.head.sha }}
