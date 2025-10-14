@@ -39,3 +39,8 @@ docs:
 templates:
   settings:
     enabled: true
+
+# Disable telemetry for our internal usage
+settings:
+  telemetry:
+    enabled: false
