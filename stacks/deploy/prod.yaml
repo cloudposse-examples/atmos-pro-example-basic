@@ -24,5 +24,5 @@ components:
           1: 
             component: my-example-component-1
       vars:
-        foo: "prod foo"
-        bar: "prod bar"
+        foo: "prod bar"
+        bar: "prod foo"
