@@ -35,3 +35,7 @@ settings:
 # We use it here for demonstration purposes only.
 terraform:
   backend_type: local
+  dependencies:
+    tools:
+      # Use a specific terraform version from toolchain
+      opentofu: "1.11.0"
