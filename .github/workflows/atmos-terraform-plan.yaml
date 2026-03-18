@@ -28,6 +28,7 @@ concurrency:
 permissions:
   id-token: write # This is required for requesting the JWT (OIDC) token
   contents: read # This is required for actions/checkout
+  statuses: write # This is required to post status checks back to the PR commit
 
 jobs:
   atmos-plan:
